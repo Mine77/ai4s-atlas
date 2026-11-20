@@ -35,8 +35,18 @@ const companyFolders=companyCategories.map(name=>({
 const researchFolders = ['研究模型与方法','科研平台与工具','开放数据库'].map(name=>({
   type:'folder' as const,name,children:profiles.research.filter(p=>p.data.collection===name).map(pageLink),
 })).filter(f=>f.children.length);
-function folder(section:Section, children:Node[]):Node {
-  return {type:'folder',name:sections[section],index:{type:'page',name:sections[section],url:'/'+section},children};
+function folder(section: Section, groups: {type: 'folder'; name: string; children: Node[]}[]): Node {
+  const total = groups.reduce((sum, group) => sum + group.children.length, 0);
+  const name = `${sections[section]}（${total}）`;
+  return {
+    type: 'folder',
+    name,
+    index: {type: 'page', name, url: '/' + section},
+    children: groups.map(group => ({
+      ...group,
+      name: `${group.name}（${group.children.length}）`,
+    })),
+  };
 }
 export const tree:Root={name:'AI4S Atlas',children:[
   folder('guides',guideFolders),folder('startups',companyFolders),folder('research',researchFolders),
