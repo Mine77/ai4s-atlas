@@ -1,5 +1,6 @@
 import { defineConfig, defineDocs, frontmatterSchema } from 'fumadocs-mdx/config';
 import { z } from 'zod';
+import { guideTopics } from './lib/guide-topics';
 
 const profile = frontmatterSchema.extend({
   title: z.string().min(1).regex(/^[^|｜]+$/),
@@ -15,6 +16,6 @@ export const research = defineDocs({dir:'content/research', docs:{schema:profile
   type:z.literal('research'), collection:z.enum(['研究模型与方法','科研平台与工具','开放数据库']),
 })}});
 export const guides = defineDocs({dir:'content/guides', docs:{schema:frontmatterSchema.extend({
-  group:z.enum(['intro','life','matter','earth','physics']), order:z.number(),
+  group:z.enum(guideTopics.map(topic => topic.key)), order:z.number(),
 })}});
 export default defineConfig();

@@ -29,7 +29,7 @@ export default async function AtlasPage({params}:Props) {
     return <><meta httpEquiv="refresh" content={'0;url='+url}/><a href={url}>打开档案</a></>;
   }
   if(section==='guides' && !slug.length)return <DocsPage full footer={footer}><DocsTitle>领域指南</DocsTitle>
-    <DocsBody>{guideFolders.map(g=><section key={g.name}><h2>{g.name}</h2><ul>{g.children.map(p=><li key={p.url}><Link href={p.url}>{p.name}</Link></li>)}</ul></section>)}</DocsBody></DocsPage>;
+    <DocsBody>{guideFolders.map(g=><section key={g.name}><h2>{g.name}</h2><p>{g.question}</p><ul>{g.children.map(p=><li key={p.url}><Link href={p.url}>{p.name}</Link></li>)}</ul></section>)}</DocsBody></DocsPage>;
   if((section==='startups'||section==='research') && !slug.length) return <DocsPage full footer={footer}>
     <DocsTitle>{sections[section]}</DocsTitle><Catalog key={section} projects={catalogRows(section)} kind={section}/></DocsPage>;
   const source=sources[section as Section];

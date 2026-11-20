@@ -1,4 +1,5 @@
 import { createElement } from 'react';
+import { guideTopics } from './guide-topics';
 import { loader } from 'fumadocs-core/source';
 import type { Node, Root } from 'fumadocs-core/page-tree';
 import { startups, research, guides } from '../.source/server';
@@ -18,10 +19,9 @@ function pageLink(p:{url:string,data:{title:string,logo?:string}}) {
   }) : undefined;
   return {type:'page' as const, name:p.data.title, url:p.url,icon};
 }
-export const guideGroups = {intro:'赛道入门',life:'生命科学、医药与农业',matter:'物质科学与能源技术',earth:'地球、环境与空间科学',physics:'基础科学与工程计算'} as const;
 const guidesByOrder=sources.guides.getPages().sort((a,b)=>a.data.order-b.data.order);
-export const guideFolders=Object.entries(guideGroups).map(([key,name])=>({
-  type:'folder' as const, name, children:guidesByOrder.filter(p=>p.data.group===key).map(pageLink),
+export const guideFolders=guideTopics.map(({key,name,question})=>({
+  type:'folder' as const, name, question, children:guidesByOrder.filter(p=>p.data.group===key).map(pageLink),
 }));
 const byName=(a:{data:{title:string}},b:{data:{title:string}})=>a.data.title.localeCompare(b.data.title,'zh-CN');
 export const profiles = {
@@ -36,8 +36,7 @@ const researchFolders = ['研究模型与方法','科研平台与工具','开放
   type:'folder' as const,name,children:profiles.research.filter(p=>p.data.collection===name).map(pageLink),
 })).filter(f=>f.children.length);
 function folder(section: Section, groups: {type: 'folder'; name: string; children: Node[]}[]): Node {
-  const total = groups.reduce((sum, group) => sum + group.children.length, 0);
-  const name = `${sections[section]}（${total}）`;
+  const name = sections[section];
   return {
     type: 'folder',
     name,
