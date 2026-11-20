@@ -1,18 +1,48 @@
+import { createElement } from 'react';
 import { loader } from 'fumadocs-core/source';
-import type { Root } from 'fumadocs-core/page-tree';
-import { docs } from '../.source/server';
+import type { Node, Root } from 'fumadocs-core/page-tree';
+import { startups, research, guides } from '../.source/server';
 
-export const source = loader({baseUrl: '/', source: docs.toFumadocsSource()});
-export const pages = source.getPages();
-export const projects = pages.map(({url,data})=>({
-  url, title:data.title, summary:data.summary, category:data.category,
-  countries:data.countries, directions:data.directions, maturity:data.maturity,
+export const sections = {guides:'领域指南',startups:'商业项目',research:'学术项目'} as const;
+export type Section = keyof typeof sections;
+export const sources = {
+  guides:loader({baseUrl:'/guides',source:guides.toFumadocsSource()}),
+  startups:loader({baseUrl:'/startups',source:startups.toFumadocsSource()}),
+  research:loader({baseUrl:'/research',source:research.toFumadocsSource()}),
+};
+
+function pageLink(p:{url:string,data:{title:string,logo?:string}}) {
+  const icon=p.data.logo ? createElement('img',{
+    src:(process.env.NEXT_PUBLIC_BASE_PATH||'')+p.data.logo, alt:'', loading:'lazy',
+    className:'nav-logo', width:18, height:18,
+  }) : undefined;
+  return {type:'page' as const, name:p.data.title, url:p.url,icon};
+}
+export const guideGroups = {intro:'赛道入门',life:'生命科学、医药与农业',matter:'物质科学与能源技术',earth:'地球、环境与空间科学',physics:'基础科学与工程计算'} as const;
+const guidesByOrder=sources.guides.getPages().sort((a,b)=>a.data.order-b.data.order);
+export const guideFolders=Object.entries(guideGroups).map(([key,name])=>({
+  type:'folder' as const, name, children:guidesByOrder.filter(p=>p.data.group===key).map(pageLink),
 }));
-export type Project = (typeof projects)[number];
-export const tree:Root = { name:'AI4S Atlas', children:[
-  {type:'page',name:'全部项目',url:'/'},
-  ...[...new Set(projects.map(p=>p.category))].map(name=>({
-    type:'folder' as const, name,
-    children:projects.filter(p=>p.category===name).map(p=>({type:'page' as const,name:p.title,url:p.url})),
-  })),
+const byName=(a:{data:{title:string}},b:{data:{title:string}})=>a.data.title.localeCompare(b.data.title,'zh-CN');
+export const profiles = {
+  startups:sources.startups.getPages().sort(byName),
+  research:sources.research.getPages().sort(byName),
+};
+const companyCategories=[...new Set(profiles.startups.map(p=>p.data.category))].sort((a,b)=>a.localeCompare(b,'zh-CN'));
+const companyFolders=companyCategories.map(name=>({
+  type:'folder' as const,name,children:profiles.startups.filter(p=>p.data.category===name).map(pageLink),
+}));
+const researchFolders = ['研究模型与方法','科研平台与工具','开放数据库'].map(name=>({
+  type:'folder' as const,name,children:profiles.research.filter(p=>p.data.collection===name).map(pageLink),
+})).filter(f=>f.children.length);
+function folder(section:Section, children:Node[]):Node {
+  return {type:'folder',name:sections[section],index:{type:'page',name:sections[section],url:'/'+section},children};
+}
+export const tree:Root={name:'AI4S Atlas',children:[
+  folder('guides',guideFolders),folder('startups',companyFolders),folder('research',researchFolders),
 ]};
+export function catalogRows(section:'startups'|'research') {
+  return profiles[section].map(p=>({url:p.url,title:p.data.title,logo:p.data.logo,category:p.data.category,
+    countries:p.data.countries,directions:p.data.directions,maturity:p.data.maturity}));
+}
+export type Project=ReturnType<typeof catalogRows>[number];

@@ -9,14 +9,19 @@
 .count{display:flex;gap:1rem;align-items:center;color:var(--color-fd-muted-foreground);font-size:.9rem;margin-bottom:.75rem}
 .count button{text-decoration:underline}
 .project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:1rem}
-.project-card{display:flex;flex-direction:column;gap:.55rem;border:1px solid var(--color-fd-border);border-radius:.75rem;padding:1.1rem;line-height:1.6}
+.project-card{display:flex;align-items:center;gap:1rem;border:1px solid var(--color-fd-border);border-radius:.75rem;padding:1rem 1.15rem;min-height:5.6rem;line-height:1.6}
 .project-card:hover{border-color:var(--color-fd-primary);background:var(--color-fd-accent)}
 .project-card h2{font-size:1.08rem;font-weight:660}
-.project-card p,.project-card small{color:var(--color-fd-muted-foreground)}
 .tags{display:flex;flex-wrap:wrap;gap:.4rem;margin:.4rem 0 .7rem}
-.tags span,.tags b{font-size:.8rem;background:var(--color-fd-muted);padding:.15rem .45rem;border-radius:.3rem}
-.tags b{color:var(--color-fd-primary)}
+.tags a{font-size:.8rem;background:var(--color-fd-muted);padding:.15rem .45rem;border-radius:.3rem}
+.tags a:hover{text-decoration:underline;color:var(--color-fd-primary)}
 
 .tag-guide{margin-top:2rem;font-size:.875rem;color:var(--color-fd-muted-foreground);line-height:1.7}
 .tag-guide summary{cursor:pointer}
 .tag-guide p{margin:.5rem 0}
+.logo{display:inline-flex;align-items:center;justify-content:center;width:4.7rem;height:3.2rem;flex:none;background:#fff;border-radius:.4rem;padding:.3rem}
+.logo img{width:100%;height:100%;object-fit:contain}
+.profile-heading{display:flex;align-items:center;gap:1rem}
+.profile-heading h1{margin:0}
+
+.nav-logo{display:inline-block;width:18px;height:18px;object-fit:contain;border-radius:2px;background:#fff;flex-shrink:0}
