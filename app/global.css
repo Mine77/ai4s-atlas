@@ -1,0 +1,22 @@
+@import 'tailwindcss';
+@import 'fumadocs-ui/css/neutral.css';
+@import 'fumadocs-ui/css/preset.css';
+:root { --color-fd-primary: #51408c; }
+.dark { --color-fd-primary: #c6afff; }
+.filters { display: flex; gap: .75rem; flex-wrap: wrap; margin: 1rem 0; }
+.filters label { display: grid; gap: .25rem; font-size: .875rem; }
+.filters select { background: var(--color-fd-background); border: 1px solid var(--color-fd-border); padding: .45rem; border-radius: .35rem; max-width: 100%; }
+.count{display:flex;gap:1rem;align-items:center;color:var(--color-fd-muted-foreground);font-size:.9rem;margin-bottom:.75rem}
+.count button{text-decoration:underline}
+.project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:1rem}
+.project-card{display:flex;flex-direction:column;gap:.55rem;border:1px solid var(--color-fd-border);border-radius:.75rem;padding:1.1rem;line-height:1.6}
+.project-card:hover{border-color:var(--color-fd-primary);background:var(--color-fd-accent)}
+.project-card h2{font-size:1.08rem;font-weight:660}
+.project-card p,.project-card small{color:var(--color-fd-muted-foreground)}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin:.4rem 0 .7rem}
+.tags span,.tags b{font-size:.8rem;background:var(--color-fd-muted);padding:.15rem .45rem;border-radius:.3rem}
+.tags b{color:var(--color-fd-primary)}
+
+.tag-guide{margin-top:2rem;font-size:.875rem;color:var(--color-fd-muted-foreground);line-height:1.7}
+.tag-guide summary{cursor:pointer}
+.tag-guide p{margin:.5rem 0}

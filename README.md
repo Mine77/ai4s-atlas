@@ -2,9 +2,13 @@
 
 用 Fumadocs 建立的中文 AI for Science 项目研究网站。首页可按研究主体所在国家或地区、科研环节、进展程度和项目类别组合筛选。
 
+[打开 AI4S Atlas](https://mine77.github.io/ai4s-atlas/)
+
 ## 开发与部署
 
 使用 Node.js 22.12 或更高版本，在仓库根目录执行 `npm ci` 和 `npm run dev`。运行 `npm run build` 可生成 `out/`，适用于 Cloudflare Pages 或其他静态托管。用 `NEXT_PUBLIC_BASE_PATH` 指定子目录部署前缀，部署到独立域名时留空。
+
+推送到 `main` 后，GitHub Actions 会重新编译并发布到 GitHub Pages。
 
 ## 更新项目
 
