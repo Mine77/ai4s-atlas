@@ -33,6 +33,8 @@ order: 0
 - **缩短提出分子到取得实物之间的等待。** Iktos 把可合成性、反应排程和机器人执行接在一起。LabGenius 则让模型选择下一批候选抗体，在细胞中实测，同时考察目标细胞和健康细胞的响应。前者可以核对每批最终交付多少纯化样品，后者要核对候选在两种细胞之间能否保留所需的选择性。[Iktos](/startups/iktos/) · [LabGenius Therapeutics](/startups/labgenius/) · [Iktos 研究原文](https://pmc.ncbi.nlm.nih.gov/articles/PMC12705215/) · [LabGenius 研究原文](https://doi.org/10.1080/19420862.2025.2598093)
 - **从复杂天然样品寻找新的化学起点。** Enveda 根据质谱碎片信号推断分子可能的性质，将推断和样品的实测活性对照，决定先分离什么。它对 PRISM 的评测考察能否识别相近谱图。自有候选 ENV-294 的人体试验另行评价受试者的皮损与安全性。[Enveda](/startups/enveda/) · [PRISM 技术原文](https://enveda.com/prism-a-foundation-model-for-lifes-chemistry/) · [读懂这项人体试验](/guides/clinical/)
 
+- **在一个模型里比较不同类型的分子。** 英灵殿科技把 AlloDesign 定位为跨分子类型的设计平台，向药企提供定制研发和模型授权。读这类平台的验证时，先问测试对象是哪类分子、模型给出的是预测分数还是已经测过的样品，再看结果能否推广到另一类任务。公司把能用实验反馈自主迭代的实验室列在远期路线图中。[英灵殿科技](/startups/valhalla/) · [AlloDesign 产品定位与路线图](https://www.valhalla.science/)
+
 ## 算一次实验交付率
 
 Iktos 的论文安排了 135 项反应。第一轮检出 86 个预期产物，复做部分反应后累计检出 97 个。研究者从这 97 个中选择 12 个送去纯化，其中 10 个得到分离产物。[论文第 3.5–3.6 节](https://pmc.ncbi.nlm.nih.gov/articles/PMC12705215/)
