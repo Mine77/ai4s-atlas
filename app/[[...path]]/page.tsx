@@ -29,7 +29,11 @@ export default async function AtlasPage({params}:Props) {
     return <><meta httpEquiv="refresh" content={'0;url='+url}/><a href={url}>打开档案</a></>;
   }
   if(section==='guides' && !slug.length)return <DocsPage full footer={footer}><DocsTitle>领域指南</DocsTitle>
-    <DocsBody>{guideFolders.map(g=><section key={g.name}><h2>{g.name}</h2><p>{g.question}</p><ul>{g.children.map(p=><li key={p.url}><Link href={p.url}>{p.name}</Link></li>)}</ul></section>)}</DocsBody></DocsPage>;
+    <DocsBody>
+      <p>第一次看 AI for Science，可以先读<Link href="/guides/overview">《AI 怎么帮人做实验？》</Link>。
+        想了解 Periodic Labs 这类公司，再读<Link href="/guides/materials">材料研发</Link>和<Link href="/guides/lab-automation">实验室自动化</Link>。
+        一篇讲怎样挑出值得做的样品，另一篇讲样品由谁来做、结果怎样影响下一轮实验。</p>
+      {guideFolders.map(g=><section key={g.name}><h2>{g.name}</h2><p>{g.question}</p><ul>{g.children.map(p=><li key={p.url}><Link href={p.url}>{p.name}</Link></li>)}</ul></section>)}</DocsBody></DocsPage>;
   if((section==='startups'||section==='research') && !slug.length) return <DocsPage full footer={footer}>
     <DocsTitle>{sections[section]}</DocsTitle><Catalog key={section} projects={catalogRows(section)} kind={section}/></DocsPage>;
   const source=sources[section as Section];
