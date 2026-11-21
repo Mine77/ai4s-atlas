@@ -20,8 +20,8 @@ function pageLink(p:{url:string,data:{title:string,logo?:string}}) {
   return {type:'page' as const, name:p.data.title, url:p.url,icon};
 }
 const guidesByOrder=sources.guides.getPages().sort((a,b)=>a.data.order-b.data.order);
-export const guideFolders=guideTopics.map(({key,name,question})=>({
-  type:'folder' as const, name, question, children:guidesByOrder.filter(p=>p.data.group===key).map(pageLink),
+export const guideFolders=guideTopics.map(({key,name,description})=>({
+  type:'folder' as const, name, description, children:guidesByOrder.filter(p=>p.data.group===key).map(pageLink),
 }));
 const byName=(a:{data:{title:string}},b:{data:{title:string}})=>a.data.title.localeCompare(b.data.title,'zh-CN');
 export const profiles = {
