@@ -21,6 +21,8 @@ maturity: "实际部署"
 
 化学与材料研究人员可以在 Mira Science 里设置研究目标、分配智能体角色、调用计算资源，再检查候选结构、模拟数据、图表和生成它们的代码。其底层 ReactiveAI 平台将候选分子与反应生成、量子化学计算、反应网络分析和实验优化接在一起。例如，研究员可以提出希望改善的配方性质，让 Mira 比较几种候选，并追查入选分子所依据的计算。公司同时提供面向团队的智能体订阅。[平台和高通量筛选](https://www.legendstar.com.cn/news/468177592957069738) · [Mira Science 产品演示](https://blog.deepprinciple.com/introducing-mira-science/) · [Mira 技术报告](https://mirascience.app/blog/mira-towards-a-general-ai-scientist)
 
+Mira Science 负责组织任务和运行工具，Hydrogen-1.0 是公司在产品评测中搭配使用的科学模型。其他团队也使用 MIRA 作为项目名称。[模型发布说明](https://blog.deepprinciple.com/introducing-hydrogen-1.0/) · [MIRA 同名项目对照](/guides/mira/)
+
 ### 工业客户获得的样品和实验数据
 
 工业客户可指定稳定性、反应选择性或产率等目标。Mira 编排计算与实验，杭州自有的 AI Materials Factory 合成候选、检测性质，将测量结果反馈给下一轮筛选。按公司披露，这类委托可以向客户交付经实验验证的化合物和对应数据。联想之星在 2026 年 7 月披露 Mira 已服务逾万名专业个人用户，并称有单一客户达千万元级的订单正在落地。公告没有披露其中的付费用户数、确认收入或已收款项。[公司实验室公告](https://www.accessnewswire.com/newsroom/en/business-and-professional-services/inside-deep-principle-the-ai-that-runs-its-own-chemistry-experim-1243618) · [投资人业务说明](https://www.legendstar.com.cn/news/478914774705800173)

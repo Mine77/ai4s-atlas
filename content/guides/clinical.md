@@ -31,6 +31,8 @@ AI 在这类项目中可以从影像或纵向记录提取特征。验证时既�
 
 医院据此评估软件在本地人群中的表现。如果产品还主张使用风险评分调整筛查能改善患者结局，就需要研究实施这种安排后实际发生的变化。一次历史数据评测只覆盖这条证据链的前半段。
 
+医疗时间序列预测关注下一次测量可能得到什么数值。微软等团队的 MIRA 在多种医疗记录上预训练，用观测值和时间戳预测后续读数。它与上文根据乳腺影像估计癌症风险的 Mirai 对应不同的研究任务。[MIRA 原始论文](https://proceedings.neurips.cc/paper_files/paper/2025/hash/8e12ba543adc673da5b89c9311fcf72c-Abstract-Conference.html) · [MIRA 同名项目对照](/guides/mira/)
+
 ## 候选药物的临床开发
 
 AI 参与药物发现后，接受人体试验的是候选药物。以 Enveda 为例，其 PRISM 模型在天然产物研究中用于辨认化学信号；候选药 ENV-294 的人体试验则记录患者接受治疗后的皮损、症状和不良事件。两组数据分别评价发现方法和治疗方案。[Enveda 公司档案](/startups/enveda/) · [PRISM 模型说明](https://enveda.com/prism-a-foundation-model-for-lifes-chemistry/)

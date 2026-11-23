@@ -21,6 +21,8 @@ maturity: "实际部署"
 
 **MIRA** 是面向工业研发团队的专有材料设计平台。客户可获得新结构、预测性质及优先测试名单。例如，水处理企业 Kemira 收到逾 5,000 种候选设计，选出约 20 种继续开发。研发团队定义性能和制造约束，MIRA 生成候选结构，调用物理模拟排序，规划合成路线，并协调合作实验室制样与表征。实验结果用于更新下一轮候选。公司将参与其中的企业、数据提供方和实验室组织成 **AI Materials Foundry**，对外申请入口区分产业伙伴、合成与测试伙伴和数据伙伴。开源分子模拟工具 **kUPS** 是其中一项可单独运行的技术。[官网及合作申请入口](https://cusp.ai/) · [MIRA 工作流程](https://www.nea.com/blog/from-algorithms-to-atoms-part-ii-doubling-down-on-cuspai) · [kUPS 源码](https://github.com/cusp-ai-oss/kUPS)
 
+本文中的 MIRA 指 CuspAI 自有平台。医疗时序模型、单细胞分析软件以及深度原理的同名产品各有独立的开发团队。[MIRA 同名项目对照](/guides/mira/)
+
 ### 计算验证：湿空气中的气体吸附
 
  ODAC25 的同行评议版本包含近 6,000 万次密度泛函理论单点计算，涉及约 1.5 万种 MOF，以及二氧化碳、水、氮和氧。CuspAI 的生成模型提出约 5.3 万个框架，再选出最能增加结构多样性的 460 个，交由量子化学计算。这个实验检验了生成模型能否扩大训练数据的结构覆盖范围。这 460 种结构扩展了孔径、比表面积和密度的覆盖范围，公开成果限于计算数据。[论文](https://doi.org/10.1038/s44286-026-00445-5) · [公司对其分工的说明](https://cusp.ai/blog/opendac-2025-the-largest-open-dataset-for-direct-air-capture/) · [辅助代码与数据](https://zenodo.org/records/21537519)
